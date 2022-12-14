@@ -1,0 +1,37 @@
+{% load static %}
+<html>
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Update</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/update.css' %}">
+      </head>
+<body>
+    <div class="main-block">
+<h1><center>Update Diploma</center></h1>
+<form action="update_d_action/{{ d.id }}" method="post">
+    <hr>
+{% csrf_token %}
+<div class="account-type">
+    <label id="icon" for="name" style="background-color: #1c87c9;"><i class="fas fa-user"></i></label>My Education
+<input name="me1" value="{{ d.MyEducation }}" class="form-control">
+</div>
+<hr>
+<div class="account-type">
+    <label id="icon" for="name" style="background-color: #1c87c9;"><i class="fas fa-user"></i></label>My Experience
+<input name="me2" value="{{ d.MyExperience}}"class="form-control">
+</div>
+<hr>
+<!--<div class="col-sm-4 col-md-6 col-lg-4">
+<label>Date of learning </label>
+<input readonly name="dateI" value="{{ i.dateI | date:"j/M/Y" }}" class="form-control">
+</div>-->
+<div class="btn-block">
+<br><button type="submit" style="background-color: #1c87c9;" value="Modifier">Update
+</div>
+</div>
+</form>
+</body>
+</html>

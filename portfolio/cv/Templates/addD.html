@@ -1,0 +1,33 @@
+{% load static %}
+<html>
+<head>
+    <head>
+        <title>add Diploma</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/update.css' %}">
+      </head>
+<body>
+    <div class="main-block">
+<h1><center> Diploma</center></h1>
+<form action="add_d/{{ d.id }}" method="post">
+{% csrf_token %}
+<div class="account-type">
+    <label id="icon" for="name" style="background-color: #1c87c9;"><i class="fas fa-user"></i></label>MyEducation<br>
+<input name="me1"  class="formcontrol">
+</div>
+<div class="account-type">
+    <label id="icon" for="name" style="background-color: #1c87c9;"><i class="fas fa-user"></i></label>MyExperience<br>
+<input name="me2" class="form-control">
+</div>
+<div class="account-type">
+    <label id="icon" for="name" style="background-color: #1c87c9;"><i class="fas fa-user"></i></label>Date<br>
+<input  name="dateD" class="form-control" type="date">
+</div>
+<div class="btn-block">
+    <br><button type="submit" style="background-color: #1c87c9;" value="Modifier">Add
+    </div>
+</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,25 @@
+from django.urls import path
+from . import views
+urlpatterns = [
+ path('Info/', views.index, name='index'),
+ path('skills/', views.skills, name='skills'),
+ path('diploma/', views.iploma, name='diploma'),
+ path('internships/', views.internship, name='internships'),
+ path('change/', views.change, name='change'),
+ path('quali/', views.quali, name='quali'),
+ path('change/del_s/<int:id>', views.del_s, name='del_s'),
+ path('quali/del_i/<int:id>', views.del_i, name='del_i'),
+ path('quali/del_d/<int:id>', views.del_d, name='del_d'),
+ path('change/update_s/<int:id>', views.update_s, name='update_s'),
+ path('change/update_s/update_s_action/<int:id>',views.update_s_action, name='update_s_action'),
+ path('quali/update_i/<int:id>', views.update_i, name='update_i'),
+ path('quali/update_i/update_i_action/<int:id>',views.update_i_action, name='update_i_action'),
+ path('quali/update_d/<int:id>', views.update_d, name='update_d'),
+ path('quali/update_d/update_d_action/<int:id>',views.update_d_action, name='update_d_action'),
+ path('change/addS/', views.adds, name='adds'),
+ path('change/addS/add_s/', views.add_s, name='add_s'),
+ path('quali/addI/', views.addi, name='addi'),
+ path('quali/addI/add_i/', views.add_i, name='add_i'),
+ path('quali/addD/', views.addd, name='addd'),
+ path('quali/addD/add_d/', views.add_d, name='add_d'),
+]

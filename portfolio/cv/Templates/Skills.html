@@ -1,0 +1,72 @@
+
+<html>
+    {% load static %}
+    <head>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <title>Folio</title>
+    <style>
+        .styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 1300px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+}
+.styled-table thead tr {
+    background-color: #0b6ab8;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 20px 20px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #0b6ab8;;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #0b6ab8;;
+}
+    </style>
+    {% include 'navbar.html' %}
+</head>
+<body>
+    <h1>Skills</h1>
+    <div class="container-fluid py-5" id="skill">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center">
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Skills</h1>
+                <h1 class="position-absolute text-uppercase text-primary">My Skills</h1>
+            </div>
+        {% for l in l %}
+           {% for a in s %}
+           {% if a.language_id == l.id %}
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="skill mb-4">
+                    <div class="d-flex justify-content-between">
+                        <h6 class="font-weight-bold">{{l.language}}</h6>
+                        <h6 class="font-weight-bold">{{a.niveau}}%</h6>
+                    </div>
+                    <div class="progress">
+                        <div role="progressbar" aria-valuenow="{{a.niveau}}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+           {% endfor %}
+           {% endfor %}
+                </body>

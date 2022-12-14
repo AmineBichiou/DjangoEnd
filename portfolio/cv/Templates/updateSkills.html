@@ -1,0 +1,46 @@
+{% load static %}
+<html>
+    <head>
+        <title>Update</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/update.css' %}">
+      </head>
+<body>
+    <div class="main-block">
+<h1><center>Update Skill</center></h1>
+<form action="update_s_action/{{ s.id }}" method="post">
+{% csrf_token %}
+<hr>
+<div class="account-type">
+    <label id="icon" for="name" style="background-color: #1c87c9;"><i class="fas fa-user"></i></label>Name<br>
+<input name="nom" value="{{ s.nom }}" class="formcontrol">
+</div>
+<div class="account-type">
+    <label id="icon" for="name" style="background-color: #1c87c9;"><i class="fas fa-user"></i></label>Niveau
+<input name="niveau" value="{{ s.niveau }}" class="form-control">
+</div>
+<div class="account-type">
+    <label id="icon" for="name" style="background-color: #1c87c9;"><i class="fas fa-user"></i></label>Formation
+    <input name="formation" value="{{ s.formation }}"
+    class="form-control">
+    </div>
+    <div class="account-type">
+        <label id="icon" for="name" style="background-color: #1c87c9;"><i class="fas fa-user"></i></label>Date of learning
+<input readonly name="dateS" value="{{ s.dateS | date:"j/M/Y" }}" class="form-control">
+</div>
+<div class="account-type">
+    <label id="icon" for="name" style="background-color: #1c87c9;"><i class="fas fa-user"></i></label>Language
+<select name="language" class="form-control form-control-lg">
+    {% for l in l %}
+<option value="{{ l.id }}">{{ l.language }}</option>
+{% endfor %}
+</select>
+</div><div class="btn-block">
+    <br><button type="submit" style="background-color: #1c87c9;" value="Modifier">Update
+    </div>
+</div>
+</div>
+</form>
+</body>
+</html>

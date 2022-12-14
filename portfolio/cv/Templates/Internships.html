@@ -1,0 +1,68 @@
+
+<html>
+    {% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<title>Folio</title>
+ {% include 'navbar.html' %}
+ <style>
+    .styled-table {
+border-collapse: collapse;
+margin: 25px 0;
+font-size: 0.9em;
+font-family: sans-serif;
+min-width: 1300px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+border-collapse: collapse;
+border-radius: 1em;
+overflow: hidden;
+}
+.styled-table thead tr {
+background-color: #0b6ab8;
+color: #ffffff;
+text-align: left;
+}
+.styled-table th,
+.styled-table td {
+padding: 20px 20px;
+}
+.styled-table tbody tr {
+border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+border-bottom: 2px solid #0b6ab8;;
+}
+.styled-table tbody tr.active-row {
+font-weight: bold;
+color: #0b6ab8;;
+}
+</style>
+</head>
+<body>
+        <h1>Skills</h1>
+        <div class="container-fluid py-5" id="skill">
+            <div class="container">
+                <div class="position-relative d-flex align-items-center justify-content-center">
+                    <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Services</h1>
+                    <h1 class="position-absolute text-uppercase text-primary">My Internships</h1>
+                </div>
+        
+    
+               <div class="row pb-3">
+                {% for i in i %}
+                <div class="col-lg-4 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center mb-4">
+                        <i class="fa fa-2x fa-laptop service-icon bg-primary text-white mr-3"></i>
+                        <h4 class="font-weight-bold m-0">{{ i.namesociete }}</h4>
+                    </div>
+                    <p><strong>Project Name :</strong>{{ i.projet }}</p>
+                    <p><strong>Date :</strong>{{ i.dateI }}</p>
+                </div>
+               {% endfor %}
+               
+</body>

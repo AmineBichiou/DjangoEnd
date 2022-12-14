@@ -1,0 +1,123 @@
+
+<html>
+    {% load static %}
+    <head>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <title>Folio</title>
+    <style>
+        * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+		-webkit-tap-highlight-color: transparent;
+}
+
+button {
+	width: 150px;
+	height: 50px;
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: bold;
+	color: #0b6ab8;
+	background: white;
+	border: 2px solid #0b6ab8;
+	box-shadow: 5px 5px 0 #0b6ab8,
+		-5px -5px 0 #0b6ab8,
+		-5px 5px 0 #0b6ab8,
+		5px -5px 0 #0b6ab8;
+	transition: 500ms ease-in-out;
+}
+
+button:hover {
+	box-shadow: 20px 5px 0 #0b6ab8, -20px -5px 0 #0b6ab8;
+}
+
+button:focus {
+	outline: none;
+}
+        .styled-table {
+    border-collapse: collapse;
+    margin: 25px 25px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 1300px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+}
+.styled-table thead tr {
+    background-color: #0b6ab8;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 20px 20px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #0b6ab8;;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #0b6ab8;;
+}
+    </style>
+    {% include 'nav.html' %}
+    <h1>idk</h1>
+    <div class="container">
+    <table class="styled-table">
+        <thead>
+            <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Niveau</td>
+            <td>Formations</td>
+            <td>Language</td>
+            <td>Date of learning</td>
+            <td>Update</td>
+            <td>Delete</td>
+            </tr>
+            </thead>
+            <tbody>
+               {% for l in l %}
+               {% for a in s %}
+               {% if a.language_id == l.id %}
+            <tr>
+            <td>{{ a.id }}</td>
+            <td>{{ a.nom }}</td>
+            <td>{{ a.niveau }}</td>
+            <td>{{ a.formation }}</td>
+            <td>{{ l.language}}</td>
+            <td>{{ a.dateS }}</td>
+            <td><a href="update_s/{{ a.id }}"><img height="50" width="50" src="{% static 'img/fe.png' %}"></a></td>
+            <td><a href="del_s/{{ a.id }}"><img height="50" width="50" src="{% static 'img/fd.png' %}"> </a></td>
+            </tr>
+            {% endif %}
+               {% endfor %}
+               {% endfor %}
+            </tbody>
+            </table>
+            <p align="right">
+                <a href="addS/" ><button class="name noselect">Add Skill</button></a>
+                </p>
+            </div>
+            
